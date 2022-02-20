@@ -1,0 +1,48 @@
+*{
+  margin: 0;
+}
+
+.container{
+  background-color: thistle;
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.card{
+  background-color: gainsboro;
+  margin: 20px;
+  height: fit-content;
+  width: 300px;
+
+  
+}
+.heading{
+  background-color: rgb(204, 171, 171);
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+ 
+
+  
+  
+}
+.main{
+  
+  
+}
+.title{
+  background-color: transparent;
+  width: fit-content;
+  
+  font-size: 40px;
+  font-weight: 800;
+ 
+  
+}
