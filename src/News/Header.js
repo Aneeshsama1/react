@@ -1,13 +1,26 @@
 import React from 'react';
+import {
+    MDBNavbar,
+    MDBNavbarNav,
+    MDBNavbarItem,
+    MDBNavbarLink,
+    MDBNavbarToggler,
+    MDBContainer,
+    MDBIcon
+  } from 'mdb-react-ui-kit';
 import '../App.css'
 
 
 const Title=()=>{
 
     return(
-        <div className='heading'>
-            <div className='title'>News Website</div>
-        </div>
+        <header>
+                <div className='title'>Game Collection</div>
+        </header>
+     
+
+        
+        
 
     )
 }

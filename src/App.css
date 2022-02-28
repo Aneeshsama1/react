@@ -12,6 +12,7 @@
   
 }
 
+
 .card{
   background-color: gainsboro;
   margin: 20px;
@@ -39,7 +40,8 @@
 }
 .lower{
 
-  background-color: aqua;
+  
+  margin-top: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,10 +64,11 @@
   
 }
 .btn{
+  margin-top: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: aqua;
+  
 }
 button{
   background-color: thistle;

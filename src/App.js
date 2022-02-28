@@ -1,4 +1,5 @@
 import './App.css';
+
 import Main from './News/main';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
      
      <Main/>
+     
        
     </div>
   );
