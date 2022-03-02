@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 import '../App.css';
-import Title from './Header';
 import axios from 'axios'
 import Banner from './Banner';
 import Edit from './edit';
@@ -10,7 +9,7 @@ import Edit from './edit';
 
 const Main = () => {
 
-    const [news, setNews] = useState([]);
+    const [games, setGames] = useState([]);
     const [edit, setEdit] = useState();
     const [add, setAdd] = useState();
     const [productId,setProductId]=useState()
@@ -22,8 +21,8 @@ const Main = () => {
         setAdd(false)
 
 
-        axios.get("http://localhost:2000/products").
-            then(rep => rep).then(resp => setNews(resp.data)).catch((err) => console.log(err))
+        axios.get("http://localhost/productapi/product").
+            then(rep => rep).then(resp => setGames(resp.data)).catch((err) => console.log(err))
 
     }, [])
 
@@ -34,8 +33,12 @@ const Main = () => {
     }
 
     const removeProduct=(id)=>{
-
-        axios.delete(`http://localhost:2000/products/${id}`).then(()=>alert('data deleted'))
+         
+        axios.get(`http://localhost/productapi/product/delete/${id}`).then(()=>alert('data deleted'))
+        
+        
+        axios.get("http://localhost/productapi/product").
+            then(rep => rep).then(resp => setGames(resp.data)).catch((err) => console.log(err))
     }
 
     const addProduct=()=>{
@@ -47,9 +50,11 @@ const Main = () => {
 
     return (
         <div className='main'>
-             <Title />
+            
             {edit==true ?
-           <Edit productId={productId} add={add}/>: 
+           <Edit productId={productId} add={add}
+           setEdit={setEdit} 
+           setGames={setGames}/>: 
             <div>
                 
                
@@ -61,8 +66,8 @@ const Main = () => {
 
 
                 {
-                    news.map(n =>
-                        <div className='card' key={n._id}>
+                    games.map(n =>
+                        <div className='card' key={n.id}>
                            
                             <div className='upper'>  <h3 className='author'>name: {n.name ? n.name.length > 15 ? n.name.substring(0, 15 - 3) + ('...') : n.name :
                                 <h4>Unknown</h4>}</h3>
@@ -73,8 +78,8 @@ const Main = () => {
 
                             </div>
                             <div className='btn'>
-                                <button onClick={()=>editProduct(n._id)}>edit</button>
-                                <button onClick={()=>removeProduct(n._id)}>delete</button>
+                                <button onClick={()=>editProduct(n.id)}>edit</button>
+                                <button onClick={()=>removeProduct(n.id)}>delete</button>
                             </div>
                         </div>)
 
