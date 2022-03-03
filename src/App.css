@@ -3,7 +3,7 @@
 }
 
 .container{
-  background-color: thistle;
+  background-color: gainsboro;
   display: inline-flex;
   flex-wrap: wrap;
   width: 100%;
@@ -14,7 +14,7 @@
 
 
 .card{
-  background-color: gainsboro;
+  background-color: thistle;
   margin: 20px;
   height: 300px;
   width: 300px;
@@ -43,6 +43,7 @@
   
   margin-top: 40px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   
@@ -70,11 +71,62 @@
   justify-content: center;
   
 }
-button{
-  background-color: thistle;
+.button1{
+   background-color: rgb(233, 44, 233);
   padding: 5px;
   margin:5px;
   border-radius: 7px;
   font-weight: 700;
   
+}
+.button2{
+  background-color: gainsboro;
+ padding: 5px;
+ margin:5px;
+ border-radius: 7px;
+ font-weight: 700;
+ 
+}
+.addBtn{
+  margin-top: 10px;
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50; 
+  padding: 15px;
+  width: 80px;
+  height: 30px;
+  border-radius: 15px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.addBtn2{
+  margin-top: 10px;
+  background-color: gainsboro;
+  color: black;
+  border: 2px solid #4CAF50; 
+  padding: 15px;
+  width: 80px;
+  height: 30px;
+  border-radius: 15px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.searchBox{
+  width: 100%;
+  background-color: gainsboro;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input{
+  margin-top: 5px;
+  width: 400px;
+  padding: 15px;
+  border-radius: 10px;
+  margin-right: 4px;
 }

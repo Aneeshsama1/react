@@ -14,16 +14,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: gainsboro;
     
 
 
 }
 
 .inner{
+
     width: 90%;
     height: 40%;
-    margin-top: 10px;
     border-radius: 15px;
     background-color: aqua;
+    border-top: 50px solid aqua;
 
 }
