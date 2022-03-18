@@ -51,4 +51,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+$route['translate_uri_dashes'] = TRUE;
+
+//api routes
+$route['Games'] = 'Game/allGames';
+$route['Games/addGame'] = 'Game/create';
+$route['Games/updateGame/(:num)'] = 'Game/updateGame/$1';
+$route['Games/deleteGame/(:num)'] = 'Game/delete/$1';
