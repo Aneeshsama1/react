@@ -20,7 +20,7 @@ const updateProduct=(id)=>{
         price: price,
         rating:rating
     }
-    axios.post(`http://localhost/backend/Games/updateGame/${id}`,product).
+    axios.post(`http://mi-linux.wlv.ac.uk/~2011790/backend/Games/updateGame/${id}`,product).
     then(()=>alert('data updated'))
 
     
@@ -29,7 +29,7 @@ const updateProduct=(id)=>{
 const home=()=>{
     props.setEdit(false)
 
-    axios.get("http://localhost/backend/Games").
+    axios.get("http://mi-linux.wlv.ac.uk/~2011790/backend/Games").
             then(rep => rep).then(resp => props.setGames(resp.data)).catch((err) => console.log(err))
 
 
@@ -43,7 +43,7 @@ const AddProduct=()=>{
         rating:rating
     }
 
-    axios.post(`http://localhost/backend/Games/addGame`,product).then(()=>alert('data added'))
+    axios.post(`http://mi-linux.wlv.ac.uk/~2011790/backend/Games/addGame`,product).then(()=>alert('data added'))
 }
 
 

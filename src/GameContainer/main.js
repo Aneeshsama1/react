@@ -29,7 +29,7 @@ const Main = () => {
         setFocus(false);
 
 
-        axios.get("http://localhost/backend/Games").
+        axios.get("http://mi-linux.wlv.ac.uk/~2011790/backend/Games").
             then(rep => rep).then(resp => setGames(resp.data)).catch((err) => console.log(err))
 
     }, [])
@@ -43,10 +43,10 @@ const Main = () => {
 
     const removeProduct = (id) => {
 
-        axios.get(`http://localhost/backend/Games/deleteGame/${id}`).then(() => alert('data deleted'))
+        axios.get(`http://mi-linux.wlv.ac.uk/~2011790/backend/Games/deleteGame/${id}`).then(() => alert('data deleted'))
 
 
-        axios.get("http://localhost/backend/Games").
+        axios.get("http://mi-linux.wlv.ac.uk/~2011790/backend/Games").
             then(rep => rep).then(resp => setGames(resp.data))
     }
 
