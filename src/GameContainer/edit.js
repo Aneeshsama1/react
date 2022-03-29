@@ -2,7 +2,8 @@ import React,{useState} from 'react';
 import { Button } from 'react-bootstrap';
 import './edit.css'
 import axios from 'axios';
-import {FaBackward } from 'react-icons/fa';
+import {FaBackward ,FaImage} from 'react-icons/fa';
+import ImageUploader from 'react-images-upload';
 
 const Edit=(props)=>{
     const [name,setName]=useState();
@@ -10,6 +11,7 @@ const Edit=(props)=>{
     const [price,setPrice]=useState();
     const [rating,setRating]=useState();
     const [color,setColor]=useState('gainsboro');
+    const [image,setImage]=useState();
 
 
 const updateProduct=(id)=>{
@@ -18,7 +20,8 @@ const updateProduct=(id)=>{
         name: name,
         description: description,
         price: price,
-        rating:rating
+        rating:rating,
+      
     }
     axios.post(`http://mi-linux.wlv.ac.uk/~2011790/backend/Games/updateGame/${id}`,product).
     then(()=>alert('data updated'))
@@ -40,10 +43,11 @@ const AddProduct=()=>{
         name: name,
         description: description,
         price: price,
-        rating:rating
+        rating:rating,
+        image: image
     }
-
-    axios.post(`http://mi-linux.wlv.ac.uk/~2011790/backend/Games/addGame`,product).then(()=>alert('data added'))
+  
+     axios.post(`http://mi-linux.wlv.ac.uk/~2011790/backend/Games/addGame`,product).then(()=>alert('data added'))
 }
 
 
@@ -58,6 +62,8 @@ const AddProduct=()=>{
    <input placeholder='description' className='name' onChange={(env)=>setDescription(env.target.value)}></input>
    <input placeholder='price' className='name' onChange={(env)=>setPrice(env.target.value)}></input>
    <input placeholder='rating' className='name' onChange={(env)=>setRating(env.target.value)}></input>
+   {/* <input type='file' onChange={(evt)=>setImage(evt.target.files[0])}></input> */}
+   <input placeholder='image url' className='name' onChange={(env)=>setImage(env.target.value)}></input>
    <Button onClick={()=>AddProduct()}>Add</Button>
    
    </div>

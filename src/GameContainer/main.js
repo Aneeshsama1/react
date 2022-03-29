@@ -5,6 +5,7 @@ import Banner from './Banner';
 import Edit from './edit';
 import { FaStar, FaSearch } from 'react-icons/fa'
 import SearchG from './SearchG';
+import Detail from './Details';
 
 
 
@@ -19,6 +20,9 @@ const Main = () => {
     const [addBtn, setAddBtn] = useState('addBtn')
     const [searchGame, setSearchGame] = useState([])
     const [focus,setFocus]=useState();
+    const [click,setClick]=useState();
+    const [individualData,setIndividualData]=useState();
+    const [s_class,setS_Class]=useState();
 
 
 
@@ -27,7 +31,9 @@ const Main = () => {
         setEdit(false);
         setAdd(false);
         setFocus(false);
-
+        setClick(false);
+      setIndividualData();
+      setS_Class('searchField');
 
         axios.get("http://mi-linux.wlv.ac.uk/~2011790/backend/Games").
             then(rep => rep).then(resp => setGames(resp.data)).catch((err) => console.log(err))
@@ -64,26 +70,31 @@ const Main = () => {
     }
 
     const starIndex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const openPost=(data)=>{
+        setClick(true)
+        setIndividualData(data);
+    }
     return (
         <div className='main'>
 
-            {edit == true ?
+           {click===false?
+            edit === true ?
                 <Edit productId={productId} add={add}
                     setEdit={setEdit}
                     setGames={setGames} /> :
                 <div>
+                 <Banner/>
 
 
-
-                 {focus==false ? <Banner />:null}   
+                
                     <div className='searchBox'>
-                        <input placeholder='search game here' onChange={(evt)=>search(evt.target.value)} onFocus={()=>setFocus(true)}
-                        onBlur={()=>setFocus(false)}></input>
-                        <FaSearch size={20} color='red' />
+                        <input className={s_class} placeholder='search game here' onChange={(evt)=>search(evt.target.value)} onFocus={()=>setFocus(true)}
+                       ></input>
+                        <FaSearch size={20} color='red' onClick={()=>setS_Class('openSearchField')} />
                     </div>
 
 
-                     {focus==true ? <SearchG searchGame={searchGame}></SearchG>:
+                     {focus===true ? <SearchG setIndividualData={setIndividualData} click={click} setClick={setClick} searchGame={searchGame}></SearchG>:
                     <div className='container'>
 
 
@@ -91,19 +102,25 @@ const Main = () => {
                             games.map(n =>
                                 <div className='card' key={n.id}>
 
-                                    <div className='upper'>  <h3 className='author'> {n.name ? n.name.length > 15 ? n.name.substring(0, 15 - 3) + ('...') : n.name :
+                               
+                                    <div className='lower'>
+                                      {console.log(n.image)}
+                                        
+                                        <img src={n.image} style={{marginTop:-120}}></img>
+                                        <div className='upper'>  
+                                    <h3 className='author'> {n.name ? n.name.length > 15 ? n.name.substring(0, 15 - 3) + ('...') : n.name :
                                         <h4>Unknown</h4>}</h3>
                                     </div>
-                                    <div className='lower'>
-
-                                        <h5>price: £{n.price}</h5>
+                                    <h5>price: £{n.price}</h5>
                                         <div style={{ marginTop: 30 }}>
                                             {starIndex.map((a, i) =>
 
-                                                <FaStar color={i < n.rating ? 'yellow' : 'black'} size={25}
+                                                <FaStar key={i} color={i < n.rating ? 'yellow' : 'black'} size={25}
                                                 />)} </div>
 
                                     </div>
+                                    <button onClick={()=>openPost(n)} 
+                                    style={{backgroundColor:'gainsboro',position:'absolute',marginLeft:-250,marginBottom:330,width:50,height:50,borderRadius:60}}>View</button>
                                     <div className='btn'>
                                         <button onClick={() => editProduct(n.id)} className={btnClass}
                                             onMouseEnter={() => setbtnClass('button1')}
@@ -129,7 +146,8 @@ const Main = () => {
                         </div>
 
                     </div> }
-                </div>}
+                </div>:
+                <Detail individualData={individualData}/>}
         </div>)
 }
 export default Main;
