@@ -15,8 +15,6 @@ const Main = () => {
     const [edit, setEdit] = useState();
     const [add, setAdd] = useState();
     const [productId, setProductId] = useState()
-    const [btnClass, setbtnClass] = useState('button1')
-    const [dltbtnClass, setdltbtnClass] = useState('button1')
     const [addBtn, setAddBtn] = useState('addBtn')
     const [searchGame, setSearchGame] = useState([])
     const [focus,setFocus]=useState();
@@ -83,12 +81,12 @@ const Main = () => {
                     setEdit={setEdit}
                     setGames={setGames} /> :
                 <div>
-                 <Banner/>
+                 {focus===true ? null: <Banner/>}
 
 
                 
                     <div className='searchBox'>
-                        <input className={s_class} placeholder='search game here' onChange={(evt)=>search(evt.target.value)} onFocus={()=>setFocus(true)}
+                        <input className={s_class} placeholder='search game here' onChange={(evt)=>search(evt.target.value)} onBlur={()=>setFocus(false)}  onFocus={()=>setFocus(true)}
                        ></input>
                         <FaSearch size={20} color='red' onClick={()=>setS_Class('openSearchField')} />
                     </div>
@@ -122,13 +120,9 @@ const Main = () => {
                                     <button onClick={()=>openPost(n)} 
                                     style={{backgroundColor:'gainsboro',position:'absolute',marginLeft:-250,marginBottom:330,width:50,height:50,borderRadius:60}}>View</button>
                                     <div className='btn'>
-                                        <button onClick={() => editProduct(n.id)} className={btnClass}
-                                            onMouseEnter={() => setbtnClass('button1')}
-                                            onMouseLeave={() => setbtnClass('button2')}>edit</button>
+                                        <button onClick={() => editProduct(n.id)} className='button'>edit</button>
 
-                                        <button onClick={() => removeProduct(n.id)} className={dltbtnClass}
-                                            onMouseEnter={() => setdltbtnClass('button1')}
-                                            onMouseLeave={() => setdltbtnClass('button2')}>delete</button>
+                                        <button onClick={() => removeProduct(n.id)} className='button'>delete</button>
                                     </div>
                                 </div>)
 
@@ -147,7 +141,8 @@ const Main = () => {
 
                     </div> }
                 </div>:
-                <Detail individualData={individualData}/>}
+                
+                <Detail individualData={individualData} setClick={setClick}/>}
         </div>)
 }
 export default Main;

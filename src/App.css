@@ -19,6 +19,7 @@
   height: 350px;;
   width: 300px;
  display: grid;
+ margin-top: 60px;
   
   
   border-radius: 30px;
@@ -56,11 +57,15 @@
 }
 
 .title{
-  background-color: transparent;
-  width: fit-content;
-  
+  background-color: #6e7f80;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 40px;
   font-weight: 800;
+  color: whitesmoke;
+  text-decoration: underline;
  
   
 }
@@ -69,32 +74,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(174, 194, 187);
+
   height: fit-content;
+  width: 10em;
+  height: 5em;
  
   
 
   
 }
-.button1{
-   background-color: rgb(233, 44, 233);
-  padding: 5px;
-  margin:10px;
-  
-  border-radius: 7px;
-  font-weight: 700;
- 
-  
+.button{
+   padding: 3px;
+   margin: 5px;
+   border-radius: 3px;
+   border-width: 0ch;
+   font-size: small;
 }
-.button2{
-  background-color: gainsboro;
- padding: 5px;
- margin:10px;
- border-radius: 7px;
- font-weight: 700;
- 
- 
-}
+
 .addBtn{
   margin-top: 10px;
   background-color: white;

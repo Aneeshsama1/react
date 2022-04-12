@@ -17,9 +17,9 @@ const Banner = () => {
             <AliceCarousel autoPlay autoPlayInterval='3000' disableButtonsControls
             keyboardNavigation>
 
-                <img src={image1} className='image' />
-                <img src={image3} className='image' />
-                <img src={image2} className='image' />
+                <img src={image1} className='imageB' />
+                <img src={image3} className='imageB' />
+                <img src={image2} className='imageB' />
 
 
             </AliceCarousel>
