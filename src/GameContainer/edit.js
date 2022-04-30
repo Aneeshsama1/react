@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import './edit.css'
 import axios from 'axios';
 import {FaBackward ,FaImage} from 'react-icons/fa';
-import ImageUploader from 'react-images-upload';
+
 
 const Edit=(props)=>{
     const [name,setName]=useState();
@@ -21,6 +21,7 @@ const updateProduct=(id)=>{
         description: description,
         price: price,
         rating:rating,
+        image:image
       
     }
     axios.post(`http://mi-linux.wlv.ac.uk/~2011790/backend/Games/updateGame/${id}`,product).
@@ -75,6 +76,7 @@ const AddProduct=()=>{
 <input placeholder='description' className='name' onChange={(env)=>setDescription(env.target.value)}></input>
 <input placeholder='price' className='name' onChange={(env)=>setPrice(env.target.value)}></input>
 <input placeholder='rating' className='name' onChange={(env)=>setRating(env.target.value)}></input>
+<input placeholder='image url' className='name' onChange={(env)=>setImage(env.target.value)}></input>
 <Button onClick={()=>updateProduct(props.productId)}>Edit</Button>
 
 </div>

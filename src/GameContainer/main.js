@@ -102,9 +102,9 @@ const Main = () => {
 
                                
                                     <div className='lower'>
-                                      {console.log(n.image)}
+                                      
                                         
-                                        <img src={n.image} style={{marginTop:-120}}></img>
+                                        <img src={n.image} style={{marginTop:-120}} className='image'></img>
                                         <div className='upper'>  
                                     <h3 className='author'> {n.name ? n.name.length > 15 ? n.name.substring(0, 15 - 3) + ('...') : n.name :
                                         <h4>Unknown</h4>}</h3>
@@ -118,7 +118,7 @@ const Main = () => {
 
                                     </div>
                                     <button onClick={()=>openPost(n)} 
-                                    style={{backgroundColor:'gainsboro',position:'absolute',marginLeft:-250,marginBottom:330,width:50,height:50,borderRadius:60}}>View</button>
+                                    style={{backgroundColor:'gainsboro',position:'absolute',marginLeft:-250,marginBottom:300,width:50,height:50,borderRadius:60,borderColor:'thistle',zIndex:2}}>View</button>
                                     <div className='btn'>
                                         <button onClick={() => editProduct(n.id)} className='button'>edit</button>
 

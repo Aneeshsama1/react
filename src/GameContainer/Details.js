@@ -10,15 +10,20 @@ const Detail = (props) => {
 
         props.individualData ? <div className="detail">
             <div className="Container">
-
-                <h1>{props.individualData.name}</h1>
-                <div className="underline"></div>
-                <div className="imT">
-                    <img src={props.individualData.image} className='image' />
-                    <h2>{props.individualData.description}</h2>
-                </div>
+            <img src={props.individualData.image} className='cover' />
+            <div className="circle">
+            <img src={props.individualData.image} className='image' />
+            
+            </div>
+             <h1>{props.individualData.name}</h1>
                 
-                <FaHome size={50} color='white' className="home" onClick={() => props.setClick(false)} />  </div>
+                    
+           <div className="para">
+           <h2>{props.individualData.description}</h2>
+           </div>
+            
+                
+            <FaHome size={50} color='white' className="home" onClick={() => props.setClick(false)} />  </div>
 
         </div> :
 
